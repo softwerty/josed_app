@@ -1,0 +1,99 @@
+<!-- <style>
+  ion-toolbar{
+    --ion-background-color: background: linear-gradient(120deg, rgb(3, 27, 77), #000613) !important;
+  }
+</style> -->
+<ion-header>
+  <ion-toolbar color="dark" style="min-height: 50px;">
+    <ion-title class="titulosMant">{{codigo}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <!-- {{dataTop | json}} -->
+  <!-- Item Inset Lines -->
+
+
+  <ion-item lines="full" color="medium" style="text-align: center;font-weight: bold;font-size: 20px !important">
+    <ion-label>DATOS BENEFICIARIO</ion-label>
+  </ion-item>
+  <ion-item lines="inset">
+    <ion-label>Nombre: </ion-label>
+    <ion-label>{{dataTop.nombre_bene}}</ion-label>
+  </ion-item>
+  <ion-item lines="inset">
+    <ion-label>RUT:</ion-label>
+    <ion-label>{{dataTop.rut_bene}}</ion-label>
+  </ion-item>
+  <ion-item lines="inset">
+    <ion-label>Fono:</ion-label>
+    <ion-label>{{dataTop.fono_bene}}</ion-label>
+  </ion-item>
+  <ion-item lines="inset">
+    <ion-label>Dirección:</ion-label>
+    <ion-label>{{dataTop.direccion_bene}}</ion-label>
+  </ion-item>
+
+
+  <ion-item lines="full" color="medium" style="text-align: center;font-weight: bold;font-size: 20px !important">
+    <ion-label>DATOS TÉCNICOS DEL CSTI</ion-label>
+  </ion-item>
+
+  <ion-item lines="inset">
+    <ion-label>Tipo de CSTI:</ion-label>
+    <ion-label>{{dataTop.tipo_de_csti}}</ion-label>
+  </ion-item>
+  <ion-item lines="inset">
+    <ion-label>Marca:</ion-label>
+    <ion-label>{{dataTop.marca}}</ion-label>
+  </ion-item>
+  <ion-item lines="inset">
+    <ion-label>Modelo:</ion-label>
+    <ion-label>{{dataTop.modelo}}</ion-label>
+  </ion-item>
+  <ion-item lines="inset">
+    <ion-label>N° de Serie:</ion-label>
+    <ion-label>{{dataTop.codigo}}</ion-label>
+  </ion-item>
+  <ion-item lines="inset">
+    <ion-label>Año Instalación:</ion-label>
+    <ion-label>{{dataTop.ano_instalacion}}</ion-label>
+  </ion-item>
+
+
+  <ion-item lines="full" color="medium" style="text-align: center;font-weight: bold;font-size: 20px !important">
+    <ion-label>TÉCNICO</ion-label>
+  </ion-item>
+  <ion-item lines="inset">
+    <ion-label>Nombre:</ion-label>
+    <ion-label>{{dataTop.nombre_tecnico}}</ion-label>
+  </ion-item>
+  <ion-item lines="inset">
+    <ion-label>E-mail:</ion-label>
+    <ion-label>{{dataTop.email_tecnico}}</ion-label>
+  </ion-item>
+
+
+
+
+
+
+</ion-content>
+<ion-footer>
+  <ion-toolbar>
+
+
+    <ion-grid text-center>
+      <ion-row text-center>
+        <ion-col text-center style="text-align: center;">
+          <ion-button color="light" class="redondeado" (click)="back()">Volver</ion-button>
+        </ion-col>
+        <ion-col text-center style="text-align: center;">
+          <ion-button color="success" (click)="continuar()">Siguiente</ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+  </ion-toolbar>
+</ion-footer>

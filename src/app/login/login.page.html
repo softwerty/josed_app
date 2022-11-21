@@ -1,0 +1,51 @@
+<!-- <ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Devdactic Auth</ion-title>
+  </ion-toolbar>
+</ion-header> -->
+<style>
+  ion-content {
+    --ion-background-color: background: linear-gradient(120deg, rgb(3, 27, 77), #000613) !important;
+  }
+</style>
+<ion-content class="ion-padding fondodeg">
+
+  <ion-row>
+    <ion-col size="12" size-sm="10" offset-sm="1" size-md="8" offset-md="2" size-lg="6" offset-lg="3" size-xl="4"
+      offset-xl="4">
+
+      <!-- <ion-card> -->
+      <ion-card-header style="text-align: center;margin-top:20%;">
+        <img src="/assets/logotipo.png" alt="" style="margin:0px auto;">
+      </ion-card-header>
+
+      <ion-card-content style="background-color: #fff;border-radius:20px;margin-top:20px" class="ion-text-center">
+
+        <ion-item>
+          <ion-label position="floating">Email</ion-label>
+          <ion-input type="email" placeholder="Email" name="email" [(ngModel)]="credentials.email"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating">Password</ion-label>
+          <ion-input type="password" placeholder="Password" name="password" [(ngModel)]="credentials.password">
+          </ion-input>
+        </ion-item>
+
+        <ion-button (click)="login()" color="success">Entrar</ion-button>
+        <!-- <ion-button expand="block" color="secondary" routerLink="/register" routerDirection="forward">Register</ion-button> -->
+
+      </ion-card-content>
+      <!-- url to URL_TEMPLATE variable -->
+
+      <a (click)="forgotpassword()" target="_blank" rel="noopener noreferrer">
+        <div style="    color: #fff; text-align: center; width: 100%;    margin-top: 20px; ">
+          ¿Olvidaste tu contraseña?
+        </div>
+      </a>
+      <!-- </ion-card> -->
+
+    </ion-col>
+  </ion-row>
+
+</ion-content>

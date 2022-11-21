@@ -1,0 +1,118 @@
+<ion-header>
+  <ion-toolbar color="success" style="min-height: 50px;">
+    <!-- <ion-title style="text-align: center;">{{tituloModal}}</ion-title> -->
+    <div class="titulosMant">{{titulo}}</div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+
+
+
+  <ion-grid *ngIf="pagina == 0">
+    <ion-row>
+      <ion-col>
+        <h2>
+          <ion-label center>Fotos del Equipo</ion-label>
+        </h2>
+      </ion-col>
+      </ion-row>
+
+    <ion-row>
+
+ <!-- <div class="row text-center cajauplprin"> -->
+  <ion-col>
+    <div class="text-center cajaupl  ">
+            <div class="row" (click)="takePhoto(1)">
+                <div class="imgUp">
+                <div class="imagePreview"><img [src]="photo1" alt=""></div>
+                    <label class="btn btn-info btnfoto">Tomar Foto </label>
+                </div><!-- col-2 -->
+            </div><!-- row -->
+    </div>
+  </ion-col>
+    <ion-col>
+    <div class="text-center cajaupl ">
+            <div class="row" (click)="takePhoto(2)">
+                <div class="imgUp">
+                <div class="imagePreview"><img [src]="photo2" alt=""></div>
+                  <label class="btn btn-info btnfoto">Tomar Foto </label>
+                </div><!-- col-2 -->
+            </div><!-- row -->
+    </div>
+  </ion-col>
+    <ion-col>
+    <div class="text-center cajaupl "  (click)="takePhoto(3)">
+            <div class="row">
+                <div class="imgUp">
+                <div class="imagePreview"><img [src]="photo3" alt=""></div>
+                  <label class="btn btn-info btnfoto">Tomar Foto </label>
+                </div><!-- col-2 -->
+            </div><!-- row -->
+    </div>
+  </ion-col>
+<!-- </div> -->
+
+    </ion-row>
+</ion-grid>
+
+
+
+<ion-grid *ngIf="pagina == 1">
+  <ion-row>
+    <ion-col>
+      <h2>
+        <ion-label center>Foto Cliente o Carnet</ion-label>
+      </h2>
+    </ion-col>
+    </ion-row>
+
+  <ion-row>
+
+
+  <ion-col>
+    <div class="text-center cajaupl  ">
+            <div class="row" (click)="takePhoto(4)">
+                <div class="imgUp">
+                <div class="imagePreview"><img [src]="photo4" alt=""></div>
+                    <label class="btn btn-info btnfoto">Tomar Foto </label>
+                </div><!-- col-2 -->
+            </div><!-- row -->
+    </div>
+  </ion-col>
+
+
+  </ion-row>
+</ion-grid>
+
+
+
+<!--
+  <ion-fab vertical="bottom" horizontal="center" slot="fixed">
+    <ion-fab-button (click)="takePhoto()">
+      <ion-icon name="camera"></ion-icon>
+    </ion-fab-button>
+
+  </ion-fab> -->
+
+
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+
+
+  <ion-grid text-center>
+    <ion-row text-center>
+      <ion-col text-center style="text-align: center;">
+        <ion-button color="light" class="redondeado" (click)="retroceder()">Volver</ion-button>
+      </ion-col>
+      <ion-col text-center style="text-align: center;">
+        <ion-button color="success" class="redondeado" (click)="avanzar()">Siguiente</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  </ion-toolbar>
+</ion-footer>

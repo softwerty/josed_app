@@ -1,0 +1,151 @@
+<!-- my-modal.page.html -->
+<ion-header>
+  <ion-toolbar color="primary" style="min-height: 50px;">
+    <!-- <ion-title style="text-align: center;">{{tituloModal}}</ion-title> -->
+    <div class="titulosMant">{{tituloModal}}</div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+
+
+
+
+
+
+
+
+
+  <div *ngFor="let bloque of dataTemplate; index as ibloque" >
+    <!-- <ion-label  *ngIf="indexHeadForm == ibloque">
+       <h2><b>{{ bloque.titulo }}</b> </h2>
+       </ion-label> -->
+    <table style="width:100%" *ngFor="let sub_bloque of bloque['sub_bloques']; index as isubbloque">
+       <ng-container  *ngIf="indexHeadForm == ibloque &&  indexForm == isubbloque">
+          <!-- <tr>
+             <th colspan="4">
+                <ion-label>
+                   <h3><b>{{ sub_bloque.titulo }} </b></h3>
+                </ion-label>
+             </th>
+            <th *ngFor="let header of sub_bloque['headers']">
+                 <b>{{ header }} </b>
+             </th>
+          </tr> -->
+          <ng-container *ngFor="let dato of sub_bloque['datos']; index as idato">
+            <tr><td colspan="2"><hr style="border-top: 1px solid #cecece;"></td></tr>
+             <tr>
+                <td>
+                   <ion-label>
+                      {{ dato.titulo }}
+                   </ion-label>
+                </td>
+                <!-- <ng-container> -->
+                   <td style="margin-top: 10px;" *ngIf="sub_bloque['headers'].length > 0">
+
+                     <!-- {{dataTemplate[ibloque]['sub_bloques'][isubbloque]['datos'][idato]['insert'] |json}} -->
+                      <ion-segment *ngIf="dataTemplate[ibloque]['sub_bloques'][isubbloque]['datos'][idato]['insert'] === undefined" (ionChange)="segmentChanged($event)" mode="ios" scrollable="true" [(ngModel)]="dataTemplate[ibloque]['sub_bloques'][isubbloque]['datos'][idato]['valor']">
+                        <!-- HEADER GENERAL -->
+                        <ng-container *ngIf="dataTemplate[ibloque]['sub_bloques'][isubbloque]['datos'][idato]['custom_headers'] === undefined">
+                            <ng-container *ngFor="let header of sub_bloque['headers']">
+                            <ng-container *ngIf="header == dato.valor; else noselect">
+                                <ion-segment-button value="{{header}}" >
+                                  <ion-label>{{header}}</ion-label>
+                                </ion-segment-button>
+                            </ng-container>
+                            <ng-template #noselect>
+                                <ion-segment-button value="{{header}}">
+                                  <ion-label>{{header}}</ion-label>
+                                </ion-segment-button>
+                            </ng-template>
+                            </ng-container>
+                        </ng-container>
+                        <!-- HEADER CUSTOM -->
+                        <ng-container *ngIf="dataTemplate[ibloque]['sub_bloques'][isubbloque]['datos'][idato]['custom_headers'] !== undefined">
+                          <ng-container *ngFor="let header of dataTemplate[ibloque]['sub_bloques'][isubbloque]['datos'][idato]['custom_headers']">
+                          <ng-container *ngIf="header == dato.valor; else noselect">
+                              <ion-segment-button value="{{header}}" >
+                                <ion-label>{{header}}</ion-label>
+                              </ion-segment-button>
+                          </ng-container>
+                          <ng-template #noselect>
+                              <ion-segment-button value="{{header}}">
+                                <ion-label>{{header}}</ion-label>
+                              </ion-segment-button>
+                          </ng-template>
+                          </ng-container>
+                      </ng-container>
+
+                      </ion-segment>
+
+
+                    <ng-container *ngIf="dataTemplate[ibloque]['sub_bloques'][isubbloque]['datos'][idato]['insert'] !== undefined">
+                      <ion-item *ngFor="let datainsert of dataTemplate[ibloque]['sub_bloques'][isubbloque]['datos'][idato]['insert']; index as idinsert" style="text-align: right;">
+                        <ion-label *ngIf="datainsert['pre'] != ''"> {{datainsert['pre']}}&nbsp;</ion-label>
+                          <!-- NO CHECK BOX -->
+                          <ion-input *ngIf="datainsert['type'] != 'checkbox'" type="{{datainsert['type']}}" style="text-align: right;" (ionChange)="segmentChanged($event)" [(ngModel)]="dataTemplate[ibloque]['sub_bloques'][isubbloque]['datos'][idato]['insert'][idinsert]['val']"></ion-input>
+                          <!-- SI ES CHECKBOX -->
+                          <ion-checkbox *ngIf="datainsert['type'] == 'checkbox'" style="text-align: right;" (ionChange)="segmentChanged($event)" [(ngModel)]="dataTemplate[ibloque]['sub_bloques'][isubbloque]['datos'][idato]['insert'][idinsert]['val']"></ion-checkbox>
+                        <ion-label *ngIf="datainsert['pos'] != ''">&nbsp;{{datainsert['pos']}} </ion-label>
+                      </ion-item>
+                    </ng-container>
+
+                   </td>
+                <!-- </ng-container> -->
+             </tr>
+             <tr>
+                <td colspan="2">
+                   <ion-row>
+                      <ion-textarea class="redondear" placeholder="Observación..." value="{{ dato.observaciones }}"  [(ngModel)]="dataTemplate[ibloque]['sub_bloques'][isubbloque]['datos'][idato]['observaciones']" (ngModelChange)="segmentChanged($event)"> </ion-textarea>
+                   </ion-row>
+                </td>
+             </tr>
+
+          </ng-container>
+       </ng-container>
+    </table>
+ </div>
+
+
+
+
+
+
+
+  <!-- <ion-grid>
+    <ion-row text-center>
+      <ion-col text-center>
+        <ion-button color="light" class="redondeado" (click)="retroceder()">Volver</ion-button>
+      </ion-col>
+      <ion-col text-center>
+        <ion-button color="success" class="redondeado" (click)="avanzar()">{{textoBoton}}</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid> -->
+
+</ion-content>
+
+<!-- <ion-footer class="ion-no-border">
+  <ion-toolbar>
+    <ion-title>Footer - No Border</ion-title>
+  </ion-toolbar>
+</ion-footer>
+-->
+<ion-footer>
+  <ion-toolbar>
+
+
+  <ion-grid text-center>
+    <ion-row text-center>
+      <ion-col text-center style="text-align: center;">
+        <ion-button color="light" class="redondeado" (click)="retroceder()">Volver</ion-button>
+      </ion-col>
+      <ion-col text-center style="text-align: center;">
+        <ion-button color="success" class="redondeado" (click)="avanzar()">{{textoBoton}}</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  </ion-toolbar>
+</ion-footer>

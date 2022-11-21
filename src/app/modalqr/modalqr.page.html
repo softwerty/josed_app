@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Ingrese N° de Serie</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content color="success">
+
+  <!-- <ion-grid>
+    <ion-row>
+      <ion-col text-center>
+        <ion-input placeholder="ID EQUIPO" [(ngModel)]="idEquipo"></ion-input>
+        <div >{{data | json}}</div>
+      </ion-col>
+    </ion-row>
+  </ion-grid> -->
+  <ion-grid>
+    <ion-row class="ion-justify-content-center">
+      <ion-col text-center style="    text-align: center;margin-top: 40%;">
+        <ion-label>{{alerta}}</ion-label><br>
+        <ion-input autofocus="true" placeholder="N de Serie" [(ngModel)]="nSerie" #inputId></ion-input>
+      </ion-col>
+    </ion-row>
+    <ion-row class="ion-justify-content-center">
+      <ion-col text-center style="    text-align: center;">
+        <ion-button color="danger" (click)="back()">Volver</ion-button>
+        <ion-button color="primary" (click)="crearFicha()">Crear Ficha</ion-button>
+        <!-- <ion-button color="light" (click)="scan()">Escanear Código QR</ion-button> -->
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+
+  <!-- <ion-fab vertical="bottom" horizontal="center" slot="fixed" (click)="scan()">
+    <ion-fab-button>
+      <ion-icon name="qr-code-outline"></ion-icon>
+    </ion-fab-button>
+
+  </ion-fab> -->
+
+</ion-content>

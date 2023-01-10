@@ -3,6 +3,7 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
+  VERSION_APP: '1.1.0',
   production: false,
   // API_URL_TEMPLATE: 'https://alpha.josed.cl/api',
   // URL_TEMPLATE: 'https://alpha.josed.cl',

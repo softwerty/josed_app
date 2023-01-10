@@ -23,8 +23,8 @@ import { FinfichaPage } from '../finficha/finficha.page';
 
 import { environment } from '../../environments/environment';
 //enviroment environment
- const TOKEN_KEY =  environment.TOKEN_KEY;
-
+const TOKEN_KEY =  environment.TOKEN_KEY;
+const VERSION_APP = environment.VERSION_APP;
 // import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
 
 
@@ -71,6 +71,7 @@ interface StoredMantencion {
 })
 export class HomePage implements OnInit {
 
+  VERSION_APP = VERSION_APP;
   users = [];
   tecnico = [];
   user = null;

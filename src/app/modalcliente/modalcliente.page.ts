@@ -13,6 +13,9 @@ export class ModalclientePage implements OnInit {
   idEquipo: any;
   codigo: any;
 
+  idTipoEquipo: any;
+  nombreTipoEquipo: any;
+
 
 
   constructor(
@@ -28,7 +31,12 @@ export class ModalclientePage implements OnInit {
   ngOnInit() {
    console.table( this.navParams.data.dataTop);
    this.codigo = this.navParams.data.dataTop.codigo;
-   this.dataTop = this.navParams.data.dataTop;
+    this.dataTop = this.navParams.data.dataTop;
+
+   this.idTipoEquipo = this.navParams.data.dataTop.idTipoEquipo;
+   this.nombreTipoEquipo = this.navParams.data.dataTop.nombreTipoEquipo;
+  console.log(this.nombreTipoEquipo);
+
 
   }
 

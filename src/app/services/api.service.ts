@@ -125,6 +125,25 @@ export class ApiService {
     }
   }
 
+    getTemplateFull(forceRefresh: boolean = false): Observable<any[]> {
+    if (this.networkService.getCurrentNetworkStatus() == ConnectionStatus.Offline) {
+      // Return the cached data from Storage
+      return from(this.getLocalData('templateFull'));
+    } else {
+      // Just to get some "random" data
+      // let page = Math.floor(Math.random() * Math.floor(6));
+
+      // Return real API data and store it locally
+      return this.http.get(`${API_URL_TEMPLATE}/getformatorepo_full`).pipe(
+        map(res => res['data']),
+        tap(res => {
+          console.table(res)
+          this.setLocalData('templateFull', res);
+        })
+      )
+    }
+  }
+
   updateUser(user, data): Observable<any> {
     let url = `${API_URL}/users/${user}`;
     if (this.networkService.getCurrentNetworkStatus() == ConnectionStatus.Offline) {

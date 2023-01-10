@@ -4,13 +4,17 @@
 
 export const environment = {
   production: false,
-  API_URL_TEMPLATE: 'https://alpha.josed.cl/api',
-  URL_TEMPLATE: 'https://alpha.josed.cl',
+  // API_URL_TEMPLATE: 'https://alpha.josed.cl/api',
+  // URL_TEMPLATE: 'https://alpha.josed.cl',
+
+  API_URL_TEMPLATE: 'https://fichapp.test/api',
+  URL_TEMPLATE: 'https://fichapp.test',
+
 
   // API_URL_TEMPLATE: 'http://138.197.78.193/api',
   // URL_TEMPLATE: 'http://138.197.78.193',
-  //   API_URL_TEMPLATE: 'http://127.0.0.1:8000/api',
-  // URL_TEMPLATE: 'http://127.0.0.1:8000',
+  // API_URL_TEMPLATE: 'http://127.0.0.1:8085/api',
+  // URL_TEMPLATE: 'http://127.0.0.1:8085',
 
   STORAGE_MANT_KEY: 'storedreqpost',
   TOKEN_KEY: 'tknkeysaymu20211313',

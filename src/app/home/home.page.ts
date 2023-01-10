@@ -76,6 +76,7 @@ export class HomePage implements OnInit {
   user = null;
 
   repoTemplate = null;
+  repoTemplateFull = null;
 
   postPendientes = null;
   mantencionesPendientes = null;
@@ -200,6 +201,14 @@ export class HomePage implements OnInit {
         refresher.target.complete();
       }
     });
+
+    this.apiService.getTemplateFull(refresh).subscribe(res => {
+      this.repoTemplateFull = res;
+        console.log("templateFull cargado");
+      if (refresher) {
+        refresher.target.complete();
+      }
+    });
   }
 
   loadAll(refresh = false, refresher?){
@@ -232,7 +241,19 @@ export class HomePage implements OnInit {
 
   createMantencion(data) {
 // console.log("captura",data.idEquipo);
-    this.apiService.createMantencion(data,JSON.stringify(this.repoTemplate)).then(dataResp => {this.completecreate(dataResp)} );
+
+    // si existe el index data.idTipoEquipo dentro de repoTemplateFull entonces tomamos ese template, sino tomamos el template por defecto repoTemplate
+
+    let repoParaEnviar = this.repoTemplate;
+
+    if (this.repoTemplateFull[data.idTipoEquipo] != undefined) {
+      repoParaEnviar = this.repoTemplateFull[data.idTipoEquipo];
+    }
+
+    this.apiService.createMantencion(data,JSON.stringify(repoParaEnviar)).then(dataResp => {this.completecreate(dataResp)} );
+
+
+    // this.apiService.createMantencion(data,JSON.stringify(this.repoTemplate)).then(dataResp => {this.completecreate(dataResp)} );
 
 
 

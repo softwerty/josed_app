@@ -15,6 +15,8 @@ export class ModalqrPage implements OnInit {
   isInput: any;
 
   idEquipo: any;
+  idTipoEquipo: any;
+  nombreTipoEquipo: any;
   data: any;
   alerta:any;
 
@@ -67,6 +69,9 @@ export class ModalqrPage implements OnInit {
 
           //  console.log("resultado",data['idEquipo']);
           this.idEquipo = data['idEquipo'];
+          this.idTipoEquipo = data['idTipoEquipo'];
+          this.nombreTipoEquipo = data['nombreTipoEquipo'];
+
           this.closeModal()
 
         }
